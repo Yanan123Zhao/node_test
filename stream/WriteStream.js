@@ -69,19 +69,18 @@ function write (path) {
     highWaterMark: 3
   })
   ws.on('open', () => {console.log('open')})
-  function f (num) {
+  function f () {
     let flag = true
-    while (flag && num >= 0) {
-      flag = ws.write('' + num--)
+    while (flag && n >= 0) {
+      flag = ws.write('' + n--)
       console.log('flag', flag)
     }
-    ws.once('drain', () => {
-      console.log('drain')
-      f(num)
-    })
   }
-  f(n)
-  
+  ws.once('drain', () => {
+    console.log('drain')
+    f()
+  })
+  f()
 }
 
 write('./1.txt')
