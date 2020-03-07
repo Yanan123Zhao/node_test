@@ -1,0 +1,23 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "```\r static-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "static-server": "./bin/www.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "debug": "^4.1.1",
+    "handlebars": "^4.7.3",
+    "mime": "^2.4.4"
+  },
+  "devDependencies": {
+    "@types/yargs": "^15.0.4"
+  }
+}
