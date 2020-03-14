@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Yanan123Zhao/node_test#readme",
   "dependencies": {
+    "http-proxy": "^1.18.0",
     "mime": "^2.4.4"
   }
 }
