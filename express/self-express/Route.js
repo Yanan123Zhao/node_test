@@ -30,8 +30,10 @@ Route.prototype.dispatch = function (req, res, out) {
     }
     const layer = _this.stack[idx++]
     const {pathname} = urlObj.parse(req.url, true)
+    // console.log('pathname********', pathname, _this.path)
     if (
-      layer.match(pathname)
+      // layer.match(pathname)
+      layer.match(_this.path)
       && _this.methods[req.method.toLowerCase()]
     ) {
       layer.handle_request(req, res, next)

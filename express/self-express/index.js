@@ -36,6 +36,18 @@ proto.handle = function (req, res) {
   this._router.dispatch.apply(this._router, [...arguments, outer])
 }
 
+proto.Router = function () {
+  return this._router
+}
+
+proto.use = function () {
+  this._router.use.apply(this._router, arguments)
+}
+
+proto.param = function () {
+  this._router.param.apply(this._router, arguments)
+}
+
 http.METHODS.forEach((method) => {
   method = method.toLowerCase()
   proto[method] = function (path) {

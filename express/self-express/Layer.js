@@ -3,6 +3,7 @@ const util = require('util')
 
 function Layer (path, options, fn) {
   const ops = options || {}
+  this.path = path
   this.handle = fn
   this.name = fn.name || '<anonymouse>'
   this.regexp = {}
@@ -18,7 +19,13 @@ Layer.prototype.match = function (path) {// req.中的路径
     } else if (this.regexp.fast_slash) {
       return true
     } else {
-      return Boolean(this.regexp.reg.exec(path))
+      const match = this.regexp.reg.exec(path)
+      this.params = {}
+      // console.log('keys', this.keys, path,this.path, match)
+      for (let i = 0; i < this.keys.length; i++) {
+        this.params[this.keys[i].name] = match[1]
+      }
+      return Boolean(match)
     }
   }
 }
@@ -29,11 +36,19 @@ Layer.prototype.match = function (path) {// req.中的路径
 Layer.prototype.handle_request = function (req, res, next) {
   // if (!this.handle_method(req)) return
   // try {
-    console.log('aaaaaaaaaa', this, util.inspect(this.handle))
+    // console.log('aaaaaaaaaa', this, util.inspect(this.handle))
     this.handle(req, res, next)
   // } catch (err) {
   //   throw err
   // }
+}
+
+Layer.prototype.handle_error = function (err, req, res, next) {
+  if (this.handle.length !== 4) {
+    next(err)
+  } else {
+    this.handle(err, req, res, next)
+  }
 }
 
 module.exports = Layer
