@@ -4,7 +4,8 @@
   "description": "学习node过程中一些练习和源码实现",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/2.test.js",
+    "test-blanket": "mocha test/2.test.js --require blanket -R doc > coverage.html "
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,14 @@
   },
   "homepage": "https://github.com/Yanan123Zhao/node_test#readme",
   "dependencies": {
+    "blanket": "^1.2.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "http-proxy": "^1.18.0",
+    "logger": "0.0.1",
     "merge-descriptors": "^1.0.1",
     "mime": "^2.4.4",
+    "mocha": "^7.1.1",
     "path-to-regexp": "^6.1.0"
   }
 }

@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+
+error [Fri Mar 20 2020 17:39:33 GMT+0800 (GMT+08:00)]  Error: erro happen
+    at Server.<anonymous> (D:\个人\test\node\node_test\process\4.worker.js:5:9)
+    at Server.emit (events.js:189:13)
+    at parserOnIncoming (_http_server.js:676:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:109:17)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
