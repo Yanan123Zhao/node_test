@@ -1,6 +1,6 @@
+// 配合middleware 文件夹内容
 let http = require('http');
 let zlib = require('zlib');
-//node是外国人写的，不支持中国特有编码的GBK
 // let iconv = require('iconv-lite');
 let options = {
     host: 'localhost',
@@ -18,6 +18,7 @@ let req = http.request(options, function (response) {
 // let body = iconv.encode('珠峰培训', 'gbk');
 let body = '123'
 zlib.gzip(body, function (err, data) {
+    // req.write(), req.end向服务器发送请求
     req.end('123');
 });
 
